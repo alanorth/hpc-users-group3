@@ -112,6 +112,41 @@
     <section data-markdown>
         <script type="text/template">
             ## Using local storage in batch jobs
+
+            taurus and mammoth have a local "scratch" space we can use:
+
+            <br/>
+            */var/scratch*
+
+            <br/>
+            Scratch space is a local, temporary place to put your data where you don't incur penalties for going over the network
+        </script>
+    </section>
+    <section data-markdown>
+        <script type="text/template">
+            ## Example batch script
+
+            ```
+            #!/bin/env bash
+            #SBATCH -p batch
+            #SBATCH -n 4
+            #SBATCH -J test
+            
+            WORKDIR=/var/scratch/$SLURM_JOBID
+            mkdir -p $WORKDIR
+
+            echo "Using $WORKDIR on $SLURMD_NODENAME"
+            echo
+            
+            Trinity.pl --seqType fq --JM 10G --single AR1960BN.fastq --output $WORKDIR/AR1960BN.out --CPU 4 --inchworm_cpu 4 --bflyCPU 4
+            ```
+
+            <br/>
+            Creates a unique temp directory for you during runtime, ie:
+
+            ```
+            /var/scratch/10287
+            ```
         </script>
     </section>
 </section>
@@ -247,6 +282,7 @@
             <p class="fragment">3. dmujibi (61.8)</p>
 
             <br />
+            <p class="fragment">... in days!</p>
         </script>
     </section>
     <section data-markdown>
@@ -260,6 +296,31 @@
             <p class="fragment">**457 days** of wall clock time in the last month!</p>
         </script>
     </section>
+</section>
+<section data-markdown>
+    <script type="text/template">
+        ## AOB
+
+        taurus maintenance this weekend... possible?
+
+        <img src="img/construction.png" style="border: none; background: none; box-shadow: none;">
+
+        - Upgrade from CentOS 5 -> 6
+        - Will allow us to run modern apps like Rstudio on taurus
+    </script>
+</section>
+<section data-markdown>
+    <script type="text/template">
+        # Getting Help
+
+        [http://hpc.ilri.cgiar.org](http://hpc.ilri.cgiar.org)
+
+        --
+
+        Come back for HUG #4 ;)
+
+        October 2, 2013
+    </script>
 </section>
 
 			</div>
