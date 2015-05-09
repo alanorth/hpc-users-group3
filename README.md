@@ -1,4 +1,4 @@
-# HPC Users Group #3
+## HPC Users Group #3
 
 This is a presentation I gave at the 3rd HPC Users Group meeting at ILRI, Kenya.
 It's an informal group I created to encourage good practices amongst the users
@@ -8,7 +8,7 @@ of ILRI's research computing platform.
 
 You can view the presentation on GitHub Pages [here](https://alanorth.github.io/hpc-users-group3).
 
-## Hacking
+### Hacking
 If you want to hack on this repo (ie for your own presentation) you will have to clone the repo and then initialize the reveal.js submodule:
 
     $ git submodule init
@@ -29,7 +29,7 @@ After hacking on the slides in the `source/` directory, build the presentation a
 
 The presentation will be available at [http://localhost:8000](http://localhost:8000).
 
-## LICENSE
+### LICENSE
 
 This repository contains the code of [Reveal.js](https://github.com/hakimel/reveal.js)
 which is licensed under the [MIT license](https://github.com/hakimel/reveal.js/blob/master/LICENSE).
